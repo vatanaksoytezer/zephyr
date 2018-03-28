@@ -1,0 +1,8 @@
+<launch>
+	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" > 
+		<param name="output_frame_id" value="firefly/base_link" />	
+		<remap from="image" to="/firefly/vi_sensor/right/image_color"/>
+		<remap from="camera_info" to="/firefly/vi_sensor/right/camera_info"/>
+		<remap from="scan" to="/firefly/scan"/>
+	</node>
+</launch>

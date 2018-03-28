@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+		<remap from="cloud_in" to="/firefly/vi_sensor/camera_depth/depth/points"/>
+		<remap from="scan" to="/firefly/scan"/>
+	</node>
+</launch>
