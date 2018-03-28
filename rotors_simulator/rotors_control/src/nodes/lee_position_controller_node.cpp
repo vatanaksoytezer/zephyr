@@ -190,7 +190,7 @@ void LeePositionControllerNode::OdometryCallback(const nav_msgs::OdometryConstPt
   Eigen::VectorXd ref_rotor_velocities;
   lee_position_controller_.CalculateRotorVelocities(&ref_rotor_velocities);
 
-  // Todo(ffurrer): Do this in the conversions header.
+  // Todo: Code For Full Yaw 
   mav_msgs::ActuatorsPtr actuator_msg(new mav_msgs::Actuators);
 
   actuator_msg->angular_velocities.clear();
