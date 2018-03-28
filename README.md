@@ -26,7 +26,7 @@ Installation Instructions - Ubuntu 16.04 with ROS Kinetic
 Basic Usage
 -----------
   ```
-  $ roslaunch rotors_gazebo firefly_indoor_slam.launch
+  $ roslaunch zephyr_gazebo firefly_indoor_slam.launch
   $ roslaunch zephyr_mapping stereo_to_rect.launch # In a seperate terminal
   $ roslaunch zephyr_mapping start_mapping.launch # In a seperate terminal
   ```
