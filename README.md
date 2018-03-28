@@ -51,3 +51,4 @@ Future Work
  - Obstacle Avoidance
  - CNN/DNN for object recognition, such as doors and windows to pass through
  - New low level controller for real world applications on different MAVs
+ - Soft Landing/Disarm
