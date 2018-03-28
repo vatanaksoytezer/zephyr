@@ -19,11 +19,11 @@
   <arg name="rviz_cfg"                default="$(find rtabmap_ros)/launch/config/rgbd.rviz" />
   
   <arg name="mav_name"                default="firefly"/>
-  <arg name="frame_id"                default="$(arg mav_name)/base_link"/>     <!-- Fixed frame id, you may set "base_link" or "base_footprint" if they are published -->
+  <arg name="frame_id"                default="firefly/base_link"/>     <!-- Fixed frame id, you may set "base_link" or "base_footprint" if they are published -->
   <arg name="database_path"           default="~/.ros/rtabmap.db"/>
   <arg name="rtabmap_args"            default="--delete_db_on_start"/>   <!-- delete_db_on_start, udebug -->
   <arg name="launch_prefix"           default=""/>
-  <arg name="approx_sync"             default="true"/>         <!-- normally false, if timestamps of the input topics are not synchronized -->
+  <arg name="approx_sync"             default="false"/>         <!-- normally false, if timestamps of the input topics are not synchronized -->
   
   <arg name="stereo_namespace"        default="vi_sensor"/>
   <arg name="left_image_topic"        default="$(arg stereo_namespace)/left/image_rect_color" />
@@ -40,7 +40,7 @@
   
   <arg name="visual_odometry"         default="false"/>          <!-- Generate visual odometry -->
   <arg name="odom_topic"              default="vi_sensor/ground_truth/odometry"/>         <!-- Odometry topic used if visual_odometry is false -->
-  <arg name="odom_frame_id"           default=""/>              <!-- If set, TF is used to get odometry instead of the topic -->
+  <arg name="odom_frame_id"           default="" />              <!-- If set, TF is used to get odometry instead of the topic -->
   
   <arg name="namespace"               default="firefly"/>
   <arg name="wait_for_transform"      default="0.2"/>
