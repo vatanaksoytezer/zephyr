@@ -50,4 +50,4 @@ Future Work
  - Yaw-Only control mode, for better mapping
  - Obstacle Avoidance
  - CNN/DNN for object recognition, such as doors and windows to pass through
- - New low level controller for real applications on different MAVs
+ - New low level controller for real world applications on different MAVs
