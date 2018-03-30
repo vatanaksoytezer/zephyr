@@ -34,7 +34,7 @@ Basic Usage
 
 After executing the commands, 2 seperate GUIs should show up. These are:
 1. Gazebo: Gazebo is the physics integrated simulator, which the MAV goes accordingly. 
-2. Rviz: The camera feed, maps and depth points is visualized in Rviz. 
+2. Rviz: The camera feed, maps and depth points are visualized in Rviz. 
 
 MAV will automatically start navigating and mapping between pre-determined waypoints once the GUIs show up. These waypoints are located and can be changed from rotors_gazebo/resource/example_waypoints.txt file. For more information, please visit [RotorS github page](https://github.com/ethz-asl/rotors_simulator).
 
