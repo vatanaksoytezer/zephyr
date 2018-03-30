@@ -32,4 +32,11 @@
     enable_ground_truth="true">
     <origin xyz="0.1 0.0 -0.03" rpy="0.0 0.1 0.0" />
   </xacro:vi_sensor_macro>
+
+  <xacro:include filename="$(find hector_sensors_description)/urdf/hokuyo_utm30lx.urdf.xacro"/>
+
+  <hokuyo_utm30lx name="hokuyo_laser" parent="firefly/base_link">
+    <origin xyz="0 0 +0.1" rpy="0 0 0" />
+  </hokuyo_utm30lx>
+
 </robot>

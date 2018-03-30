@@ -39,4 +39,8 @@
   <node pkg="nodelet" type="nodelet" name="point_cloud2"
         args="load stereo_image_proc/point_cloud2 $(arg manager) $(arg bond)"
 	respawn="$(arg respawn)" />
+
+  <!-- Publish fake laser messages-->
+  <!--include file="$(find zephyr_navigation)/launch/zephyr_pc_scan.launch"/-->
+
 </launch>

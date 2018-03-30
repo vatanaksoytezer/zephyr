@@ -14,6 +14,9 @@
     <arg name="paused" value="true"/>
   </include>
 
+  <!-- Publish fake laser messages-->
+  <include file="$(find zephyr_navigation)/launch/zephyr_pc_scan.launch"/>
+
   <group ns="$(arg mav_name)">
     <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
       <arg name="mav_name" value="$(arg mav_name)" />
