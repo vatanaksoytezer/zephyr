@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>libfovis</name>
+  <version>0.0.4</version>
+  <description>
+    Fast Odometry from VISion
+  </description>
+
+  <maintainer email="pl.negre@uib.cat">Pep Lluis Negre</maintainer>
+  <license>GPL</license>
+
+  <author>Albert Huang</author>
+  <author>Maurice Fallon</author>
+
+  <run_depend>catkin</run_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>cmake_modules</build_depend>
+
+  <export>
+    <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -libfovis" cflags="-msse3 -I${prefix}/libfovis/libfovis/"/>
+  </export>
+
+</package>
