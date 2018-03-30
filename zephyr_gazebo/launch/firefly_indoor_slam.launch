@@ -15,7 +15,7 @@
   </include>
 
   <!-- Publish fake laser messages-->
-  <include file="$(find zephyr_navigation)/launch/zephyr_pc_scan.launch"/>
+  <!--include file="$(find zephyr_navigation)/launch/zephyr_pc_scan.launch"/-->
 
   <group ns="$(arg mav_name)">
     <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
@@ -36,4 +36,8 @@
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rotors_gazebo)/resource/rviz/firefly.rviz" />
   </group>
+
+  <!-- Start Mapping -->
+  <include file="$(find zephyr_mapping)/launch/gmapping.launch"/>
+  
 </launch>
