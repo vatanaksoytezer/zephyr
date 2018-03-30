@@ -74,6 +74,27 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        firefly/kinect_camera_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        firefly/kinect_camera_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        firefly/kinect_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        firefly/kinect_camera_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        firefly/kinect_camera_rgb_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         firefly/odometry_sensor1_link:
           Alpha: 1
           Show Axes: false
@@ -112,42 +133,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        firefly/vi_sensor/camera_depth_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        firefly/vi_sensor/camera_depth_optical_center_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        firefly/vi_sensor/camera_left_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        firefly/vi_sensor/camera_left_optical_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        firefly/vi_sensor/camera_right_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        firefly/vi_sensor/ground_truth/odometry_sensor_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        firefly/vi_sensor/imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        firefly/vi_sensor/vi_sensor_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         hokuyo_laser_frame:
           Alpha: 1
           Show Axes: false
@@ -176,7 +161,7 @@ Visualization Manager:
     - Class: rviz/Camera
       Enabled: true
       Image Rendering: background and overlay
-      Image Topic: /firefly/vi_sensor/right/image_raw
+      Image Topic: /firefly/kinect_camera/rgb/image_raw
       Name: Camera
       Overlay Alpha: 0.5
       Queue Size: 2
@@ -256,7 +241,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.00999999978
       Style: Points
-      Topic: /firefly/vi_sensor/camera_depth/depth/points
+      Topic: /firefly/kinect_camera/depth/points
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -264,8 +249,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.614913404
-        Min Value: 0.413270265
+        Max Value: 0.0802771449
+        Min Value: 0.0796459764
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -326,25 +311,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.88725519
+      Distance: 10.319293
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0652939454
-        Y: 0.0358923487
-        Z: -0.00881140865
+        X: -0.391151458
+        Y: -1.46015573
+        Z: -0.741513193
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.615397632
+      Pitch: 0.70039767
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.07721448
+      Yaw: 3.32084537
     Saved: ~
 Window Geometry:
   "&Camera":
