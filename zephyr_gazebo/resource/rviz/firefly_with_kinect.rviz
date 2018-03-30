@@ -249,8 +249,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.0802771449
-        Min Value: 0.0796459764
+        Max Value: 0.931960762
+        Min Value: -0.09943185
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -286,6 +286,16 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: true
+    - Alpha: 0.699999988
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: Map
+      Topic: /firefly/octomap_grid
+      Unreliable: false
+      Use Timestamp: false
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -329,7 +339,7 @@ Visualization Manager:
       Pitch: 0.70039767
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.32084537
+      Yaw: 3.15084505
     Saved: ~
 Window Geometry:
   "&Camera":

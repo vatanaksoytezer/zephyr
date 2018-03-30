@@ -28,19 +28,27 @@ Installation Instructions - Ubuntu 16.04 with ROS Kinetic
 Basic Usage
 -----------
   ```
-  $ roslaunch zephyr_gazebo firefly_indoor_slam.launch
+  $ roslaunch zephyr_gazebo firefly_indoor_slam_with_kinect.launch
+  $ roslaunch zephyr_mapping kinect_rtabmap.launch
   ```
 
-After executing the command, 2 seperate GUIs should show up. These are:
+After executing the commands, 2 seperate GUIs should show up. These are:
 1. Gazebo: Gazebo is the physics integrated simulator, which the MAV goes accordingly. 
 2. Rviz: The camera feed, maps and depth points is visualized in Rviz. 
 
 MAV will automatically start navigating and mapping between pre-determined waypoints once the GUIs show up. These waypoints are located and can be changed from rotors_gazebo/resource/example_waypoints.txt file. For more information, please visit [RotorS github page](https://github.com/ethz-asl/rotors_simulator).
 
-Viewing Generated Map
+Viewing Generated 2D Map
 ---------------------
   ```
   $ rosrun map_server map_saver -f ~/catkin_ws/src
+  ```
+Example maps generated from this package can be found under test directory of this repository.
+
+Viewing Generated 3D Map
+---------------------
+  ```
+  $  rtabmap-databaseViewer ~/.ros/rtabmap.db
   ```
 Example maps generated from this package can be found under test directory of this repository.
 
