@@ -14,7 +14,7 @@ The other codes and additions are written by myself and licensed under MIT licen
 Installation Instructions - Ubuntu 16.04 with ROS Kinetic
 ---------------------------------------------------------
  ```
- $ sudo apt-get install ros-kinetic-rtabmap-ros
+ $ sudo apt-get install ros-kinetic-rtabmap-ros ros-kinetic-hector-mapping
  $ mkdir -p ~/catkin_ws/src
  $ cd ~/catkin_ws/src
  $ catkin_init_workspace  # initialize your catkin workspace
@@ -30,6 +30,7 @@ Basic Usage
   ```
   $ roslaunch zephyr_gazebo firefly_indoor_slam_with_kinect.launch
   $ roslaunch zephyr_mapping kinect_rtabmap.launch
+  $ rosrun zephyr_localization zephyr_sensor_fusion # On board localization (experimental and optional)
   ```
 
 After executing the commands, 2 seperate GUIs should show up. These are:
