@@ -37,4 +37,11 @@
     <origin xyz="0 0 +0.1" rpy="0 0 0" />
   </hokuyo_utm30lx>
 
+  <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro"/>
+
+  <pressure_sensor_plugin_macro namespace="firefly" pressure_sensor_suffix="" parent_link="firefly/base_link" pressure_topic="air_pressure" mass_pressure_sensor="0.015" reference_altitude="0.0" pressure_variance="0.0">
+    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </pressure_sensor_plugin_macro>
+
 </robot>
