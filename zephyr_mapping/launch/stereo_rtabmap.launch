@@ -1,5 +1,8 @@
 
 <launch>
+
+  <include file="$(find zephyr_mapping)/launch/stereo_to_rect.launch"/>
+
    <!-- Backward compatibility launch file, use "rtabmap.launch rgbd:=false stereo:=true" instead -->
 
    <!-- Your camera should be calibrated and publishing rectified left and right 
@@ -8,7 +11,7 @@
            $ roslaunch rtabmap_ros bumblebee.launch -->
  
   <!-- Choose visualization -->
-  <arg name="rtabmapviz"              default="true" /> 
+  <arg name="rtabmapviz"              default="false" /> 
   <arg name="rviz"                    default="false" />
   
   <!-- Localization-only mode -->
@@ -19,7 +22,7 @@
   <arg name="rviz_cfg"                default="$(find rtabmap_ros)/launch/config/rgbd.rviz" />
   
   <arg name="mav_name"                default="firefly"/>
-  <arg name="frame_id"                default="firefly/base_link"/>     <!-- Fixed frame id, you may set "base_link" or "base_footprint" if they are published -->
+  <arg name="frame_id"                default="firefly/vi_sensor/camera_depth_optical_center_link"/>     <!-- Fixed frame id, you may set "firefly/vi_sensor/camera_depth_optical_center_link" or "firefly/base_link" if they are published -->
   <arg name="database_path"           default="~/.ros/rtabmap.db"/>
   <arg name="rtabmap_args"            default="--delete_db_on_start"/>   <!-- delete_db_on_start, udebug -->
   <arg name="launch_prefix"           default=""/>
@@ -32,8 +35,8 @@
   <arg name="right_camera_info_topic" default="$(arg stereo_namespace)/right/camera_info" />
   <arg name="compressed"              default="false"/>
    
-  <arg name="subscribe_scan"          default="false"/>         <!-- Assuming 2D scan if set, rtabmap will do 3DoF mapping instead of 6DoF -->
-  <arg name="scan_topic"              default="/scan"/>
+  <arg name="subscribe_scan"          default="true"/>         <!-- Assuming 2D scan if set, rtabmap will do 3DoF mapping instead of 6DoF -->
+  <arg name="scan_topic"              default="scan"/>
    
   <arg name="subscribe_scan_cloud"    default="false"/>         <!-- Assuming 3D scan if set -->
   <arg name="scan_cloud_topic"        default="/scan_cloud"/>

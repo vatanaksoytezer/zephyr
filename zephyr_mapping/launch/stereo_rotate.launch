@@ -1,0 +1,12 @@
+<launch>
+  <!-- Rotate the camera frame. -->
+  <arg name="pi/2" value="1.5707963267948966" />
+  <arg name="optical_rotate" value="0 0 0 -$(arg pi/2) 0 -$(arg pi/2)" />
+  <node pkg="tf" type="static_transform_publisher" name="stereo_camera_base_link"
+        args="$(arg optical_rotate) base_link stereo_camera_link 100" />  
+    
+  <!-- Use direclty "stereo_camera" namespace instead of remappping each message. -->
+  <group ns="firefly/vi_sensor" >   
+    <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc"/>
+  </group>
+</launch>
