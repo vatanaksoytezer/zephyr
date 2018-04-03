@@ -39,6 +39,8 @@ After executing the commands, 2 seperate GUIs should show up. These are:
 
 MAV will automatically start navigating and mapping between pre-determined waypoints once the GUIs show up. These waypoints are located and can be changed from rotors_gazebo/resource/example_waypoints.txt file. For more information, please visit [RotorS github page](https://github.com/ethz-asl/rotors_simulator).
 
+![alt text](test/scenario_ss.jpg "Running the scenario world in Gazebo")
+
 Viewing Generated 2D Map
 ---------------------
   ```
