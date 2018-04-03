@@ -46,7 +46,7 @@ Viewing Generated 2D Map
   ```
 Example maps generated from this package can be found under test directory of this repository.
 
-![Alt text](/home/tezerv/Pictures/scenario_map.jpeg?raw=true "2D Map of a collapsed house scenario")
+![alt text](https://github.com/VatanTezer/zephyr/tree/master/test/scenario_map.jpeg?raw=true "2D Map of a collapsed house scenario")
 
 Viewing Generated 3D Map
 ---------------------
@@ -55,7 +55,7 @@ Viewing Generated 3D Map
   ```
 Example maps generated from this package can be found under test directory of this repository.
 
-![Alt text](/home/tezerv/Pictures/scenario_rtabmap.jpeg?raw=true "3D Map of a collapsed house scenario")
+![alt text](https://github.com/VatanTezer/zephyr/tree/master/test/scenario_rtabmap.jpeg?raw=true "3D Map of a collapsed house scenario")
 
 Future Work
 -----------
