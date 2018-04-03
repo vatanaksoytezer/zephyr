@@ -1,6 +1,7 @@
 <launch>
   <arg name="mav_name" default="firefly"/>
   <arg name="world_name" default="small_indoor_scenario"/>
+  <!--arg name="world_name" default="indoor_asphalt"/-->
   <arg name="enable_logging" default="false" />
   <arg name="enable_ground_truth" default="true" />
   <arg name="log_file" default="$(arg mav_name)" />

@@ -1,0 +1,16 @@
+<launch>
+  
+    <node pkg="svo_ros" type="vo" name="svo" clear_params="true" output="screen">
+    
+        <!-- Camera topic to subscribe to -->
+        <param name="cam_topic" value="/firefly/camera_nadir/image_raw" type="str" />
+        
+        <!-- Camera calibration file -->
+        <rosparam file="$(find zephyr_vision)/config/camera_calibration_params.yaml" />
+        
+        <!-- Default parameter settings: choose between vo_fast and vo_accurate -->
+        <rosparam file="$(find zephyr_vision)/config/vo_fast.yaml" />
+
+    </node>
+        
+</launch>
