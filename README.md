@@ -42,7 +42,7 @@ MAV will automatically start navigating and mapping between pre-determined waypo
 Viewing Generated 2D Map
 ---------------------
   ```
-  $ rosrun map_server map_saver -f ~/catkin_ws/src
+  $ rosrun map_server map_saver -f ~/catkin_ws/src/map
   ```
 Example maps generated from this package can be found under test directory of this repository.
 
