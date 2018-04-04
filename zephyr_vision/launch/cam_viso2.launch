@@ -1,0 +1,15 @@
+<launch>
+
+  <param name="/use_sim_time" value="true"/>
+  <!-- Viso2 -->
+  <node pkg="viso2_ros" type="mono_odometer" name="mono_odometer">
+    <remap from="image" to="/firefly/camera_nadir/image_raw"/>
+    <param name="base_link_frame_id" value="firefly/base_link"/>
+    <param name="odom_frame_id" value="world"/>
+    <param name="publish_tf" value="false"/>
+    <param name="sensor_frame_id" value="firefly/camera_nadir_optical_link"/>
+    <param name="camera_height" value="0.97"/>
+    <param name="camera_pitch" value="0.1"/>
+  </node>
+
+</launch>
