@@ -26,6 +26,7 @@
     <param name="base_frame" value="firefly/base_link" />
     <param name="odom_frame" value="world" />
     
+
     <!-- Tf use -->
     <param name="pub_map_odom_transform" value="false"/>
     <param name="pub_map_scanmatch_transform" value="true"/>
@@ -48,7 +49,7 @@
     <!-- SLAM (robot side) -->
     <!-- args: "delete_db_on_start" and "udebug" -->
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
-	  <param name="frame_id" type="string" value="base_link"/>
+	  <param name="frame_id" type="string" value="firefly/base_link"/>
 	
 	  <param name="subscribe_depth" type="bool" value="true"/>
 	  <param name="subscribe_scan"  type="bool" value="true"/>
@@ -61,9 +62,10 @@
   	<remap from="rgb/camera_info" to="kinect_camera/rgb/camera_info"/>
   	
       <param name="rgb/image_transport" type="string" value="compressed"/>
-      <param name="depth/image_transport" type="string" value="compressedDepth"/>
-	
+      <!--param name="depth/image_transport" type="string" value="compressedDepth"/-->
+	    <!--param name="depth/image_transport" type="string" value=""/-->
 	  <!-- RTAB-Map's parameters -->
+    <param name="queue_size" type="int" value="40"/>
 	  <param name="Reg/Strategy"       type="string" value="1"/>    <!-- 0=Visual, 1=ICP, 2=Visual+ICP -->
 	  <param name="Vis/MaxDepth"       type="string" value="10.0"/> <!-- 3D visual words maximum depth 0=infinity -->
 	  <param name="Vis/InlierDistance" type="string" value="0.1"/>  <!-- 3D visual words correspondence distance -->
@@ -98,8 +100,8 @@
     <remap from="cloud"           to="voxel_cloud" />
     
     <param name="rgb/image_transport"   type="string" value="compressed"/>
-    <param name="depth/image_transport" type="string" value="compressedDepth"/>
-
+    <!--param name="depth/image_transport" type="string" value="compressedDepth"/-->
+    <!--param name="depth/image_transport" type="string" value=""/-->
     <param name="voxel_size" type="double" value="0.01"/>
   </node>
 

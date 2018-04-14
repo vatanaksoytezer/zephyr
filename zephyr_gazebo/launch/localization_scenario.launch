@@ -31,10 +31,10 @@
     <node name="lee_position_controller_node" pkg="rotors_control" type="lee_position_controller_node" output="screen">
       <rosparam command="load" file="$(find rotors_gazebo)/resource/lee_controller_$(arg mav_name).yaml" />
       <rosparam command="load" file="$(find rotors_gazebo)/resource/$(arg mav_name).yaml" />
-      <remap from="odometry" to="/firefly/odometry_sensor1/odometry"/>
+      <remap from="odometry" to="/firefly/odom_fused"/>
     </node>
     <node name="hovering_example" pkg="rotors_gazebo" type="hovering_example" output="screen"/>
-    <node name="waypoint_publisher_file" pkg="rotors_gazebo" type="waypoint_publisher_file" output="screen" args="$(find zephyr_gazebo)/resource/scenario_waypoints.txt"/>
+    <node name="waypoint_publisher_file" pkg="rotors_gazebo" type="waypoint_publisher_file" output="screen" args="$(find zephyr_gazebo)/resource/scenario_waypoints2.txt"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zephyr_gazebo)/resource/rviz/firefly_with_kinect.rviz" />
@@ -70,8 +70,15 @@
     <remap from="map" to="hector_map"/>
   </node>
 
+  <!-- Publish air pressure sensor --> 
   <node pkg="zephyr_localization" type="air_pressure_publisher.py" name="air_pressure_publisher">
-  
+
   </node>
+
+  <!-- Publish localization -->
+  <node pkg="zephyr_localization" type="ukf_fixer.py" name="zephyr_localization">
+    
+  </node>
+
 
 </launch>

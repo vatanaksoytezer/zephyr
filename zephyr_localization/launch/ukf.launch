@@ -1,11 +1,15 @@
 <launch>
-  <node pkg="robot_localization" type="ukf_localization_node" name="ukf_se" clear_params="true">
+  <node pkg="robot_localization" type="ukf_localization_node" name="ukf_localization_node" clear_params="true">
     <rosparam command="load" file="$(find zephyr_localization)/config/firefly_ukf.yaml" />
 
     <!--  Placeholder for output topic remapping
     <remap from="odometry/filtered" to=""/>
     <remap from="accel/filtered" to=""/>
     -->
+
+  </node>
+
+  <node pkg="zephyr_localization" type="ukf_fixer.py" name="ukf_fixer">
 
   </node>
 </launch>
