@@ -1,7 +1,7 @@
 Zephyr
 ===============
 
-Zephyr is a ROS based MAV simulator (particularly for the [AscTec Firefly](http://www.asctec.de/en/uav-uas-drone-products/asctec-firefly/)) that enables MAVs to do SLAM and 3d navigation only using their on board sensors in GPS-denied environments. This project is being written for the thesis of an Istanbul Technical University Astronautical Engineering student, Vatan Aksoy Tezer by himself. The code is currently heavily based on RotorS, a MAV simulator devloped by ETH Zurich. For more information about the simulator please refer to [RotorS github page](https://github.com/ethz-asl/rotors_simulator). The code of that part is licensed under the Apache License, Version 2.0.
+Zephyr is a ROS based MAV simulator (particularly for the [AscTec Firefly](http://www.asctec.de/en/uav-uas-drone-products/asctec-firefly/)) that enables MAVs to do SLAM and 3D navigation only using on-board sensors in GPS-denied environments. This project is being written for the thesis of an Istanbul Technical University Astronautical Engineering student, Vatan Aksoy Tezer by himself. The code is currently heavily based on RotorS, a MAV simulator devloped by ETH Zurich. For more information about the simulator please refer to [RotorS github page](https://github.com/ethz-asl/rotors_simulator). The code of that part is licensed under the Apache License, Version 2.0.
 
 The 3d mapping part of the code uses [rtabmap](http://wiki.ros.org/rtabmap_ros), which is licensed under the BSD 3-Clause "New" or "Revised" License and developed by Introlab.
 
@@ -28,9 +28,8 @@ Installation Instructions - Ubuntu 16.04 with ROS Kinetic
 Basic Usage
 -----------
   ```
-  $ roslaunch zephyr_gazebo firefly_indoor_slam_with_kinect.launch
+  $ roslaunch zephyr_gazebo localization_scenario.launch
   $ roslaunch zephyr_mapping kinect_rtabmap.launch
-  $ rosrun zephyr_localization zephyr_sensor_fusion # On board localization (experimental and optional)
   ```
 
 After executing the commands, 2 seperate GUIs should show up. These are:
