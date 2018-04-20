@@ -24,7 +24,7 @@ class ukf_fixer(object):
 		# Calculate Altitude and write it into z data
 		h = ((((P0/P)**(1.0/5.257))-1)*(T+273.15))/(0.00605) - 0.09 # 0.09 bias error
 		kP = 10.0/8.0 # altitude gain
-		self.odom_fused.pose.pose.position.z = h*kP
+		# self.odom_fused.pose.pose.position.z = h*kP
 		# altitude_string = "Altitude is %s" % h
 		# rospy.loginfo(altitude_string)
 
@@ -37,6 +37,7 @@ class ukf_fixer(object):
 		self.odom_fused.child_frame_id = "firefly/base_link"
 		self.odom_fused.twist.twist.linear = data.twist.twist.linear
 		self.odom_fused.pose.covariance = data.pose.covariance
+		self.odom_fused.pose.pose.position.z = data.pose.pose.position.z
 
 	def laser_callback(self,data):
 		self.odom_fused.pose.pose.position.x = data.pose.pose.position.x
