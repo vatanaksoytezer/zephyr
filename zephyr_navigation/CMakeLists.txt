@@ -3,6 +3,8 @@ project(zephyr_navigation)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
+add_definitions(-std=c++11)
+
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -12,6 +14,11 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   rotors_gazebo
   rtabmap_ros
+  gazebo_msgs 
+  geometry_msgs 
+  mav_msgs
+  sensor_msgs
+  nav_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -108,6 +115,15 @@ catkin_package(
 #  LIBRARIES zephyr_navigation
 #  CATKIN_DEPENDS roscpp rospy rotors_gazebo rtabmap_ros
 #  DEPENDS system_lib
+  CATKIN_DEPENDS
+  gazebo_msgs
+  geometry_msgs
+  mav_msgs
+  roscpp
+  sensor_msgs
+  rotors_gazebo
+  rtabmap_ros
+  nav_msgs
 )
 
 ###########
@@ -119,6 +135,16 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+)
+
+add_executable(waypoint_generator src/waypoint_generator.cpp)
+target_link_libraries(waypoint_generator ${catkin_LIBRARIES})
+add_dependencies(waypoint_generator ${catkin_EXPORTED_TARGETS})
+
+install(TARGETS waypoint_generator
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Declare a C++ library

@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
     double t, x, y, z, yaw;
     // Only read complete waypoints.
     while (wp_file >> t >> x >> y >> z >> yaw) {
-      waypoints.push_back(WaypointWithTime(t, x+0.15, y, z+0.2, yaw * DEG_2_RAD));
+      waypoints.push_back(WaypointWithTime(t, x, y, z, yaw * DEG_2_RAD));
     }
     wp_file.close();
     ROS_INFO("Read %d waypoints.", (int) waypoints.size());
