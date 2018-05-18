@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-
+#include <string> 
 #include <Eigen/Core>
 #include <mav_msgs/conversions.h>
 #include <mav_msgs/default_topics.h>
@@ -12,8 +12,10 @@
 // Globals
 nav_msgs::Odometry current_odom;
 sensor_msgs::LaserScan current_scan;
+trajectory_msgs::MultiDOFJointTrajectory trajectory_msg;
 const float DEG_2_RAD = M_PI / 180.0;
 const int DEBUG = 0;
+int new_room = 1;
 
 void odom_callback(const nav_msgs::Odometry::ConstPtr& msg)
 {
@@ -73,6 +75,12 @@ void laser_callback(const sensor_msgs::LaserScan::ConstPtr& msg)
 	}
 }
 
+void waypoint_calculator(void)
+{
+	// Find the distances between
+
+	// Publish message here
+}
 
 int main(int argc, char** argv) 
 {
@@ -86,45 +94,73 @@ int main(int argc, char** argv)
 	ros::Subscriber laser_sub = nh.subscribe("/firefly/scan", 1000, laser_callback);
 
 	// Publisher(s)
-	ros::Publisher odom_pub;
-	if(DEBUG)
-	{
-		odom_pub = nh.advertise<nav_msgs::Odometry>("/firefly/test_odom", 10);
-	}
-	
-	/*
-	ros::Publisher trajectory_pub =
-      nh.advertise<trajectory_msgs::MultiDOFJointTrajectory>(
-      mav_msgs::default_topics::COMMAND_TRAJECTORY, 10);
-    */
+	ros::Publisher trajectory_pub = nh.advertise<trajectory_msgs::MultiDOFJointTrajectory>("/firefly/test_trajectory", 10);// mav_msgs::default_topics::COMMAND_TRAJECTORY, 10);
 
 	ROS_INFO("Started waypoint_generator.");
 
 	while(ros::ok())
 	{
 
-		if(DEBUG)
-		{
-			current_odom.header.stamp = ros::Time::now();
-			odom_pub.publish(current_odom);
-		}
+		// TODO:Solve Core Dumped
 
-		// trajectory_msgs::MultiDOFJointTrajectory trajectory_msg;
-		// trajectory_msg.header.stamp = ros::Time::now();
-
-		// Position calculation comes here
 		/*
-		Eigen::Vector3d desired_position(std::stof(args.at(1)), std::stof(args.at(2)),
-	                                   std::stof(args.at(3)));
+		// If we are in a new room, publish the new waypoints
+		if(new_room)
+		{
 
-		double desired_yaw = std::stof(args.at(4)) * DEG_2_RAD;
+			ros::Duration(2.0).sleep();
 
-		mav_msgs::msgMultiDofJointTrajectoryFromPositionYaw(desired_position,
-	      desired_yaw, &trajectory_msg);
+			double front, right, back, left;
+
+			ROS_INFO("Calculating waypoints");
+			int count = 0;
+			for (int i = 0; i <= 359; i++)
+			{
+				ROS_INFO("Ranges: [%f], Count [%d]", current_scan.ranges[i], count);	
+				count++;
+			}
+			ROS_INFO("Exiting Loop");	
+			
+			for (int i = 0; i < 45; i++)
+			{
+				front += current_scan.ranges[i]/45.0;
+			}
+
+			for (int i = 45; i < 135; i++)
+			{
+				right += current_scan.ranges[i]/90.0;
+			}
+
+			for (int i = 135; i < 225; i++)
+			{
+				back += current_scan.ranges[i]/90.0;
+			}
+
+			for (int i = 225; i < 315; i++)
+			{
+				left += current_scan.ranges[i]/90.0;
+			}
+
+			for (int i = 315; i < 360; i++)
+			{
+				front += current_scan.ranges[i]/45.0;
+			}
+
+			ROS_INFO("Waypoint calculated");
+			// Calculate waypoints
+			// TODO: Put waypoint Generation algorithm here!
+			Eigen::Vector3d desired_position(((front+back)/2.0), ((left+right)/2.0), 1.0);
+			double desired_yaw = 0.0 * DEG_2_RAD;
+
+			mav_msgs::msgMultiDofJointTrajectoryFromPositionYaw(desired_position, desired_yaw, &trajectory_msg);
+
+			ROS_INFO("Publishing waypoint on namespace %s: [%f, %f, %f].", nh.getNamespace().c_str(), desired_position.x(), desired_position.y(), desired_position.z());
+			trajectory_pub.publish(trajectory_msg);
+			// Drop the flag
+			new_room = 0;
+		}
 		*/
 
-		// Wait for some time to create the ros publisher.
-		// ros::Duration(delay).sleep();
 
 		ros::spinOnce();
 		loop_rate.sleep();

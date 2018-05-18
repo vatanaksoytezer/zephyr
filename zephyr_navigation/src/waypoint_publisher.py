@@ -57,9 +57,9 @@ class waypoint_publisher(object):
 			if self.new_room:
 				# Loop laser scan ranges
 				for i in range(0,45):
-					self.front += self.current_scan.ranges[i]/90.0
+					self.front += self.current_scan.ranges[i]/45.0
 				for i in range(315,360):
-					self.front += self.current_scan.ranges[i]/90.0
+					self.front += self.current_scan.ranges[i]/45.0
 				for i in range(45,135):
 					self.right +=  self.current_scan.ranges[i]/90.0
 				for i in range(135,225):
