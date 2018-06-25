@@ -77,7 +77,7 @@ void laser_callback(const sensor_msgs::LaserScan::ConstPtr& msg)
 
 void waypoint_calculator(void)
 {
-	// Find the distances between
+	/* Find the distances between */
 
 	// Publish message here
 }
